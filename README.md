@@ -1,0 +1,1 @@
+ファイルはNLP-main\save_count_id_dfの中に保存して使用してください# SVM
