@@ -1,11 +1,18 @@
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler 
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
+import pickle
 
-input_train, input_test, output_train, output_test = train_test_split('''tfidfベクトルを導入''', '''ラベルを導入''', test_size=0.3, random_state=None )
+with open("save_count_id_df/3_gram_waka_count_id.pkl", mode="rb") as f:
+    df = pickle.load(f)
+with open("save_count_id_df/3_gram_tanka_count_id.pkl", mode="rb") as f:
+    idf = pickle.load(f)
+
+
+input_train, input_test, output_train, output_test = train_test_split( df, idf, test_size=0.3)
 
 sc = StandardScaler()
 sc.fit(input_train)
