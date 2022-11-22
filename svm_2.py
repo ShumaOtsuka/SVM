@@ -14,15 +14,16 @@ with open("save_count_id_df/3_gram_tanka_count_id.pkl", mode="rb") as f:
 x = []
 y = []
 
-for d in df.valies:
+for d in df.values:
     x.append(d)
     y.append(0)
 for i in idf.values:
     x.append(i)
     y.append(0)
 print('len', len(y))
+print('len', len(x))
 
-input_train, input_test, = train_test_split( x, y, test_size=0.3)
+input_train, input_test, output_train, output_test = train_test_split( x, y, test_size=0.3)
 
 sc = StandardScaler()
 sc.fit(input_train)
